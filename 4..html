@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <style>
+        html,body{
+            height: 100%;
+            font-size: 15px;
+        }
+        .shopBox{
+            position: relative;
+            margin: 20px auto;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .shopBox h3{
+            height: 100%;
+            text-align: center;
+            border: 1px dashed #AAA;
+            cursor: pointer;
+        }
+        .shopBox .detail{
+            display: none;
+            position: absolute;
+            left: -401px;
+            top: 32px;
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px dashed #CCCCCC;
+        }
+    </style>
+</head>
+<body>
+<div class="shopBox">
+    <h3>点我吧</h3>
+    <div class="detail">
+        这里啥都木有、、、、、、
+    </div>
+</div>
+<script>
+    let $detail=$('.detail');
+    $('body').on('click',function (e) {
+        let target=e.target,
+            $target=$(target),
+            $parent=$target.parent();
+   if(target.tagName==='H3'&&$parent.hasClass('shopBox')){
+            $detail.stop().toggle();
+            return;
+        }
+        $detail.stop().hide();
+       });
+       $detail.on('click',function (e) {
+        e.stopPropagation();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机电脑</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style type="text/css">
+        .main{
+            margin: 0 auto;
+            width: 1000px;
+            background: #EEE;
+        }
+        .main .menu{
+            float: left;
+            width: 150px;
+            border: 1px solid palegreen;
+        }
+        .main .menu li a{
+            display: block;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px dashed lightskyblue;
+            text-align: center;
+            color: purple;
+        }
+        .detail{
+            display: none;
+            float: left;
+            height: 362px;
+            width: 500px;
+            line-height: 362px;
+            text-align: center;
+            font-size: 40px;
+            background: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="main clearfix">
+    <ul class="menu">
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span></a>
+        </li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机</span>
+            <span>电脑</span>
+        </a></li>
+    </ul>
+
+    <div class="detail">
+
+    </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+let $detail=$('.detail');
+$detail.on('mouseover',function (e) {
+    e.stopPropagation();
+});
+    $(document).on('mouseover',function (e) {
+        let target=e.target,
+            $target=$(target);
+        let $parents=$target.parents();
+        if($parents.filter('.menu').length>0){
+            if(target.tagName==='A'){
+            target=target.parentNode;
+            }
+            if(target.tagName==='LI'){
+                $target=$(target);
+                $detail.css('display','block').html($target.index());
+                return;
+            }
+        }
+        $detail.css('display','none')
+    })
+</script>
+</body>
+</html>

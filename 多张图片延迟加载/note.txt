@@ -1,0 +1,21 @@
+viewport
+  视口：浏览器是把HTML页面按照什么样的规则(例如：宽度有多宽等)来渲染的
+
+  [PC]
+  不需要加这个标签，因为PC端默认就是：浏览器有多宽，我们的HTML页面就有多宽（除非自己把HTML单独设置宽度）
+
+  [移动端]
+  必须加这个META标签，因为移动端HTML页面的渲染宽度默认是980PX(1024PX =>WIN PHONE)，不管你手机或者浏览器有多宽，我们的HTML页面都是980的宽度
+
+  问题：在320的手机上看页面，如果想把页面中的内容在窗口中都展示出来，需要把HTML整体缩小，所以我们看见的内容都是比较小的
+
+  解决：需要让HTML的宽度和手机设备的宽度保持一致，才能保证当前页面不会缩放
+
+  <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  width=device-width：让当前HTML的宽度等于设备的宽度
+  user-scalable=no：禁止用户手动缩放
+  initial-scale=1.0
+  maximum-scale=1.0
+  minimum-scale=1.0 初始、最大、最小的缩放比例都是1:1 （适配部分安卓机，部分安卓机器中只有加上这三句话，才保证禁止手动缩放）

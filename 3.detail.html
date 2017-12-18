@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style type="text/css">
+        html,body{
+            font-size: 14px;
+        }
+        .shopBox{
+            position: relative;
+            display: block;
+            margin: 20px auto;
+            height: 50px;
+            width: 100px;
+            border: 1px solid #AAA;
+            text-align: center;
+            color: #555;
+            z-index: 999;
+        }
+        .shopBox .detail{
+            display: none;
+            position: absolute;
+            top: 50px;
+            width: 500px;
+            height: 200px;
+            left: -401px;
+            border: 1px solid #AAA;
+            text-align: center;
+            z-index: -1;
+            line-height: 200px;
+
+        }
+        .shopBox:hover{
+            border-bottom-color: #fff;
+        }
+        .shopBox:hover .detail{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<a class="shopBox" href="#">
+    <span>购物车</span>
+    <div class="detail">
+        购物车中啥都没有赶紧
+    </div>
+</a>
+</body>
+</html>

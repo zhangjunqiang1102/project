@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机电话卡</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        .main{
+            margin: 20px auto;
+            width: 1000px;
+            background: #DDD;
+        }
+        .main .menu{
+            float: left;
+            width: 180px;
+            border: 1px dashed darkturquoise;
+        }
+        .main .menu li a{
+            display: block;
+            height: 35px;
+            line-height: 35px;
+             border-bottom: 1px dashed palegreen;
+            text-align: center;
+            color: lightsalmon;
+        }
+        .de{
+            display: none;
+            float: left;
+            font-size: 40px;
+            text-align: center;
+            width: 500px;
+            height: 362px;
+            line-height: 362px;
+            background: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+<div class="main clearfix">
+    <ul class="menu">
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+        <li><a href="#">
+            <span>手机 电话卡</span>
+            <span>手机 电话卡</span>
+        </a></li>
+    </ul>
+    <div class="de">
+
+    </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    let $de=$('.de');
+    $de.on('mouseover',function (e) {
+        e.stopPropagation();
+    });
+    $(document).on('mouseover',function (e) {
+        let target=e.target,
+        $target=$(target);
+
+        let $parents=$target.parents();
+        if($parents.filter('.menu').length>0){
+            if(target.tagName==='A'){
+                target=target.parentNode;
+            }
+            if(target.tagName==='SPAN'){
+                target=target.parentNode.parentNode;
+            }
+            if(target.tagName==='LI'){
+                $target=$(target);
+                $de.css('display','block').html($target.index());
+                return
+            }
+        }
+        $de.css('display','none')
+    });
+</script>
+</body>
+</html>
